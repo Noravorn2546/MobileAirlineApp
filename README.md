@@ -15,3 +15,7 @@ and no need to choose a seat during the booking process.
 8. A user is able to cancel a flight they have booked.
 9. There is no need for an admin system to modify the information of the flights and to
 add/remove flights.
+### Plagiarism policy
+- You may not copy anything (design, logo, data, code) from any group that has the same
+topic. Each group must have unique data as well as the app. Any groups found to be
+plagiarizing will all get zero for the entire project.
