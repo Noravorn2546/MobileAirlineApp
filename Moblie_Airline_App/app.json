@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Moblie_Airline_App",
-    "slug": "Moblie_Airline_App",
+    "name": "MobileAirlineApp",
+    "slug": "MobileAirlineApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
