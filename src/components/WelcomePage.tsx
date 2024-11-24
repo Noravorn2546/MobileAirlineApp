@@ -13,7 +13,7 @@ export default function WelcomePage() {
     try {
       await signOut(auth);
       Alert.alert("Logged Out", "You have been successfully logged out.");
-      navigation.navigate("Login"); // Navigate back to the login screen
+      navigation.navigate("Login");
     } catch (error) {
       Alert.alert("Error", "Failed to log out. Please try again.");
       console.error("Logout Error: ", error);
@@ -22,26 +22,35 @@ export default function WelcomePage() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome, {email}!</Text>
+      {/* Welcome Header */}
+      <View style={styles.header}>
+        <Text style={styles.title}>Welcome to AirMe</Text>
+        <Text style={styles.subtitle}>Hello, {email}</Text>
+      </View>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("SearchFlights")}
-      >
-        <Text style={styles.buttonText}>Search Flights</Text>
-      </TouchableOpacity>
+      {/* Action Buttons */}
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("SearchFlights")}
+        >
+          <Text style={styles.buttonText}>Search Flights</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("MyBookings")}
-      >
-        <Text style={styles.buttonText}>My Bookings</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("MyBookings")}
+        >
+          <Text style={styles.buttonText}>My Bookings</Text>
+        </TouchableOpacity>
 
-      {/* Logout Button */}
-      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-        <Text style={styles.logoutButtonText}>Logout</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.logoutButton}
+          onPress={handleLogout}
+        >
+          <Text style={styles.logoutButtonText}>Logout</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -49,43 +58,62 @@ export default function WelcomePage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f9f9f9",
     padding: 20,
+    backgroundColor: "#f9f9f9",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  header: {
+    alignItems: "center",
+    marginBottom: 40,
   },
   title: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: "bold",
-    color: "#333",
-    marginBottom: 20,
-    textAlign: "center",
+    color: "#007bff",
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 18,
+    color: "#555",
+  },
+  buttonsContainer: {
+    width: "100%",
+    alignItems: "center",
   },
   button: {
     backgroundColor: "#007bff",
     padding: 15,
-    borderRadius: 8,
+    borderRadius: 10,
     alignItems: "center",
     width: "80%",
-    marginBottom: 20,
+    marginBottom: 15,
+    elevation: 2,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
-    textAlign: "center",
   },
   logoutButton: {
     backgroundColor: "#dc3545",
     padding: 15,
-    borderRadius: 8,
+    borderRadius: 10,
     alignItems: "center",
     width: "80%",
+    elevation: 2,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
   },
   logoutButtonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
-    textAlign: "center",
   },
 });
